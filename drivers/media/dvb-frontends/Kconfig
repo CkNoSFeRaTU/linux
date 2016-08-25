@@ -775,6 +775,13 @@ config DVB_ISL6421
 	help
 	  An SEC control chip.
 
+config DVB_ISL6422
+	tristate "ISL6422[B] SEC controller"
+	depends on DVB_CORE && I2C
+	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	  A Dual SEC controller chip from Intersil
+
 config DVB_ISL6423
 	tristate "ISL6423 SEC controller"
 	depends on DVB_CORE && I2C
@@ -868,7 +875,43 @@ config DVB_HELENE
 	help
 	Say Y when you want to support this frontend.
 
+config DVB_TAS2101
+	tristate "Tmax TAS2101 based"
+	depends on DVB_CORE && I2C
+	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	Say Y when you want to support this frontend.
+
+config DVB_MXL5XX
+	tristate "MaxLinear MXL5XX based"
+	depends on DVB_CORE && I2C
+	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	  A DVB-S demod and tuner module.
+	  Say Y when you want to support this frontend.
+
+config DVB_SI2183
+	tristate "Silicon Labs Si2183"
+	depends on DVB_CORE && I2C
+	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	  Say Y when you want to support this frontend.
 comment "Tools to develop new frontends"
+
+config DVB_STV0910
+	tristate "STV0910 based"
+	depends on DVB_CORE && I2C
+	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	  DVB-S/S2/DSS Multistandard Professional/Broadcast demodulators.
+	  Say Y when you want to support these frontends.
+
+config DVB_AVL6882
+        tristate "Availink AVL6882 DVB-T/T2/C/S/S2 demodulator"
+        depends on DVB_CORE && I2C
+        default m if !MEDIA_SUBDRV_AUTOSELECT
+        help
+          Say Y when you want to support this frontend.
 
 config DVB_DUMMY_FE
 	tristate "Dummy frontend driver"
